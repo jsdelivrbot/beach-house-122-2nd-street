@@ -8,10 +8,11 @@
   },
   "author": "Emran Talukder",
   "license": "MIT",
-  "engine": {
-      "node": "6.9.1"
+  "engines": {
+    "node": "6.9.1"
   },
   "dependencies": {
-    "express": "^4.15.3"
+    "express": "^4.15.3",
+    "pg": "^6.2.4"
   }
 }
