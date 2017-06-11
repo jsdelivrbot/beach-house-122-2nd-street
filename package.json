@@ -1,0 +1,11 @@
+{
+  "name": "beach-house-122-2nd-street",
+  "version": "1.0.0",
+  "description": "knopf beach house shore rental",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Emran Talukder",
+  "license": "MIT"
+}

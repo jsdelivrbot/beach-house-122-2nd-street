@@ -1,0 +1,8 @@
+{
+  "name": "beach-house-122-2nd-street",
+  "description": "Knopf Beach House Rental",
+  "repository": "",
+  "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/master/public/node.svg",
+  "keywords": ["node", "express", "knopf", "rental", "beach"],
+  "image": "heroku/nodejs"
+}
