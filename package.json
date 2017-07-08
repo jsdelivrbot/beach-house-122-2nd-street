@@ -4,6 +4,7 @@
   "description": "knopf beach house shore rental",
   "main": "index.js",
   "scripts": {
+    "clean_ds_store": "find . -name '*.DS_Store' -type f -delete",
     "start": "node index.js"
   },
   "author": "Emran Talukder",
