@@ -11,6 +11,8 @@
         <link rel="stylesheet" href="/css/purple3.min.css">
         <link rel="stylesheet" href="/css/main.css">
         <script src="/js/jquery-3.2.1.min.js"></script>
+        <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
+        <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' />
     </head>
     <body>
         <div class="container">
@@ -104,7 +106,8 @@
                                 </div>
                             </div>
                             <div class="column flex-grow" style="align-items:flex-start;">
-                                <div class="center placeholder"><h1>Map</h1></div>
+                                <div class="full-width full-height" id="map"></div>
+                                
                             </div>
                         </div>
                     </div>
