@@ -327,3 +327,12 @@ p {
 .poem p {
     text-align: center;
 }
+
+#map {
+    height: 50%;
+}
+
+#map-wrapper {
+    align-items:flex-start;
+    padding: 10px 0 0 25px;
+}

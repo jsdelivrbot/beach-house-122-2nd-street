@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>122nd 2nd Street, Sea Isle City</title>
@@ -13,9 +12,11 @@
         <script src="/js/jquery-3.2.1.min.js"></script>
         <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
         <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' />
+        <link rel="stylesheet" href="/css/lightbox.min.css" />
+        <script src="/js/lightbox.min.js" charset="utf-8"></script>
     </head>
     <body>
-        <div class="container">
+        <div class="container shadow" style="margin:2px auto;background:#ffffff;">
             <header class="cover">
                 <img src="/img/Hero-image.png" alt="sunset" class="sunset">
                 <div class="cover-title">
@@ -36,24 +37,24 @@
             </header>
 
             <div class="thumbnails top-thumbs">
-                <div class="thumb">
+                <a href="/img/1.jpg" data-lightbox="thumb-1" class="thumb">
                     <img src="/img/thumb-1.png" alt=""/>
-                </div>
-                <div class="thumb">
+                </a>
+                <a href="/img/2.jpg" data-lightbox="thumb-2" class="thumb">
                     <img src="/img/thumb-2.png" alt=""/>
-                </div>
-                <div class="thumb">
+                </a>
+                <a href="/img/3.jpg" data-lightbox="thumb-3" class="thumb">
                     <img src="/img/thumb-3.png" alt=""/>
-                </div>
-                <div class="thumb">
+                </a>
+                <a href="/img/4.jpg" data-lightbox="thumb-4" class="thumb">
                     <img src="/img/thumb-4.png" alt=""/>
-                </div>
-                <div class="thumb">
+                </a>
+                <a href="/img/5.jpg" data-lightbox="thumb-5" class="thumb">
                     <img src="/img/thumb-5.png" alt=""/>
-                </div>
-                <div class="thumb">
+                </a>
+                <a href="/img/6.jpg" data-lightbox="thumb-6" class="thumb">
                     <img src="/img/thumb-6.png" alt=""/>
-                </div>
+                </a>
             </div>
 
             <div>
@@ -65,13 +66,11 @@
                 </ul>
 
                 <section class="section about active">
-                    <div class="section-title">
-                        <h1>Welcome to 2nd Street</h1>
-                    </div>
                     <div class="grid">
                         <div class="row gutters">
                             <div class="column" style="max-width:50%;">
                                 <div class="full-width full-height">
+                                    <h1>Welcome to 2nd Street</h1>
                                     <p>122 2nd Street is the ideal modern Jersey Shore vacation home. The property boasts an upside down floor plan with four generous bedrooms on the lower level along with two full baths, and a laundry closet. Sizeable fiberglass decks run the entire width of the North &amp; South sides on the home.</p>
                                     <p>Water views of both Whale Creek &amp; the Atlantic Ocean begin as soon you reach the top level. On this floor is the master suite along with the great room housing the living, kitchen, & dining areas. Cathedral ceilings, fireplace, and a gourmet kitchen with center island and stainless appliances are just a few of the highlights. Stepping outside on this level is a wraparound deck with expansive water views.</p>
                                     <h2>Accommodations</h2>
@@ -105,9 +104,8 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="column flex-grow" style="align-items:flex-start;">
-                                <div class="full-width full-height" id="map"></div>
-                                
+                            <div class="column flex-grow" id="map-wrapper">
+                                <div class="full-width full-height shadow z-1" id="map"></div>
                             </div>
                         </div>
                     </div>
@@ -122,9 +120,9 @@
                             <div class="column flex-grow">
 
                                 <div class="thumbnails">
-                                    <div class="thumb">
-                                        <img src="/img/thumb-1.png" alt=""/>
-                                    </div>
+                                    <a href="/img/gallery/1.png" data-lightbox="1" class="thumb">
+                                        <img src="/img/gallery/1.png" />
+                                    </a>
                                     <div class="thumb">
                                         <img src="/img/thumb-2.png" alt=""/>
                                     </div>
@@ -201,6 +199,21 @@
                 $sections.removeClass('active');
                 $($sections[n]).addClass('active');
             });
+
+            var centerCoords =[39.181915424395605, -74.67211961746217];
+            var latlon =[39.181915424395605, -74.67211961746217];
+
+            L.mapbox.accessToken = "pk.eyJ1IjoiaGVhdnlob3JzZSIsImEiOiJjajUwYXQwbWEwMzA5MzFxdm13cTJvM2l3In0.RB9F9TGVxHnaoSsH7huRYQ";
+
+            var map = L.mapbox.map('map', 'mapbox.streets', {minZoom: 10})
+                .setView(centerCoords, 12);
+
+            var marker = L.marker(latlon, {
+                icon: L.mapbox.marker.icon({
+                    'marker-color': '#f86767'
+                })
+            }).addTo(map);
+
         </script>
 
     </body>
