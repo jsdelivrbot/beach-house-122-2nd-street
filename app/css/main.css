@@ -336,3 +336,18 @@ p {
     align-items:flex-start;
     padding: 10px 0 0 25px;
 }
+.lb-cancel {
+    background-image: url('/img/loading.png') !important;
+}
+.lb-nav a.lb-prev {
+    background-image: url('/img/prev.png') !important;
+    opacity: 1 !important;
+}
+.lb-next {
+    background-image: url('/img/next.png') !important;
+    opacity: 1 !important;
+}
+
+.lb-data .lb-close {
+    background-image: url('/img/close.png') !important;
+}
