@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>122nd 2nd Street, Sea Isle City</title>
+        <meta name="description" content="122nd 2nd Street, Sea Isle City">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- css -->
+        <link rel="stylesheet" href="/css/purple3.min.css">
+        <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' />
+        <link rel="stylesheet" href="/css/lightbox.min.css" />
+        <!-- js -->
+        <script src="/js/jquery-3.2.1.min.js"></script>
+        <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
+        <script src="/js/lightbox.min.js" charset="utf-8"></script>
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+        <div class="container shadow" style="margin:2px auto;background:#ffffff;">
+            <header class="cover">
+                <img src="/img/Hero-image.png" alt="sunset" class="sunset">
+                <div class="cover-title">
+                    <h1>122 2nd Street, Sea Isle City NJ</h1>
+                    <h2>Set back and relax with ocean and bay views.</h2>
+                    <a class="book-link" href="/#/book-now">
+                        <div class="book-now">
+                            <span>Book Now</span>
+                        </div>
+                    </a>
+                </div>
+                <ul class="nav-tabs main-nav">
+                    <li class="nav-item"><a href="/">Home</a></li>
+                    <li class="nav-item"><a href="/">Book Now</a></li>
+                    <li class="nav-item"><a href="/">Guest Book</a></li>
+                    <li class="nav-item"><a href="/">Contact</a></li>
+                </ul>
+            </header>
+
+            <div class="thumbnails top-thumbs">
+                <a href="/img/1.jpg" data-lightbox="thumbs" class="thumb">
+                    <img src="/img/thumb-1.png" alt=""/>
+                </a>
+                <a href="/img/2.jpg" data-lightbox="thumbs" class="thumb">
+                    <img src="/img/thumb-2.png" alt=""/>
+                </a>
+                <a href="/img/3.jpg" data-lightbox="thumbs" class="thumb">
+                    <img src="/img/thumb-3.png" alt=""/>
+                </a>
+                <a href="/img/4.jpg" data-lightbox="thumbs" class="thumb">
+                    <img src="/img/thumb-4.png" alt=""/>
+                </a>
+                <a href="/img/5.jpg" data-lightbox="thumbs" class="thumb">
+                    <img src="/img/thumb-5.png" alt=""/>
+                </a>
+                <a href="/img/6.jpg" data-lightbox="thumbs" class="thumb">
+                    <img src="/img/thumb-6.png" alt=""/>
+                </a>
+            </div>
+
+            <div id="home">
+                <ul class="nav-tabs section-tabs dark" id="section-nav">
+                    <a id="nav-tab-link" href="/"><li class="nav-item home-nav-item">Home</li></a>
+                </ul>
+
+                <section class="section booking-form active">
+                    <div class="section-title">
+                        <h1>Inquiry Details</h1>
+                    </div>
+                    <div class="grid">
+                        <div class="row gutters">
+                            <div class="column">
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+
+        <script type="text/javascript">
+
+            lightbox.option({
+              'alwaysShowNavOnTouchDevices': true
+            });
+
+            // var $sectionTabs = $('.section-tabs .nav-item');
+            // var $sections = $('.section');
+            //
+            // $sectionTabs.click(function(e) {
+            //     var $item = $(e.target);
+            //     var n = $item.index();
+            //     $sectionTabs.removeClass('active');
+            //     $item.addClass('active');
+            //     $sections.removeClass('active');
+            //     $($sections[n]).addClass('active');
+            // });
+
+            var centerCoords =[39.181915424395605, -74.67211961746217];
+            var latlon =[39.181915424395605, -74.67211961746217];
+
+            L.mapbox.accessToken = "pk.eyJ1IjoiaGVhdnlob3JzZSIsImEiOiJjajUwYXQwbWEwMzA5MzFxdm13cTJvM2l3In0.RB9F9TGVxHnaoSsH7huRYQ";
+
+            var map = L.mapbox.map('map', 'mapbox.streets', {minZoom: 10})
+                .setView(centerCoords, 12);
+
+            var marker = L.marker(latlon, {
+                icon: L.mapbox.marker.icon({
+                    'marker-color': '#f86767'
+                })
+            }).addTo(map);
+
+            $(window).on('hashchange', function() {
+                var path = location.hash.slice(1);
+            });
+
+        </script>
+
+    </body>
+</html>

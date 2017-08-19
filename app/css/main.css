@@ -264,19 +264,30 @@ li.nav-item a {
 .section-tabs .nav-item {
     font-size: 20px;
 }
-.section-tabs .nav-item.active {
+.section-tabs .nav-item.active, .nav-tab-link {
     border-bottom: 2px solid #1589EE;
 }
-.section-tabs .nav-item:hover {
+.section-tabs .nav-item:hover, .nav-tab-link:hover {
     border-bottom: 2px solid #a5d2f9;
 }
 .section-tabs .nav-item:focus,
-.section-tabs .nav-item:active {
+.section-tabs .nav-item:active,
+.nav-tab-link:focus,
+.nav-tab-link:active {
     border-bottom: 2px solid #1589EE;
 }
 
 .nav-tabs.dark {
     color: #1589EE !important;
+}
+
+.nav-tabs.dark a {
+    color: inherit !important;
+}
+
+a.nav-item {
+    text-decoration: none;
+    color: inherit;
 }
 
 .section-title h1 {
@@ -350,4 +361,32 @@ p {
 
 .lb-data .lb-close {
     background-image: url('/img/close.png') !important;
+}
+
+.display-block {
+    display: block !important;
+}
+
+.blue-btn {
+    background: #408fec;
+}
+
+.book-now {
+    background: #408fec;
+}
+
+.book-now span {
+    color: #ffffff;
+}
+
+.book-link .book-now:hover {
+    background: #408fec;
+    border: 1px solid #ffffff;
+    opacity: 1;
+}
+
+.book-link .book-now:focus,
+.book-link .book-now:active {
+    border: 1px solid #74bbff;
+    opacity: .766;
 }

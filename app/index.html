@@ -10,9 +10,11 @@
         <link rel="stylesheet" href="/css/purple3.min.css">
         <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' />
         <link rel="stylesheet" href="/css/lightbox.min.css" />
+        <link rel="stylesheet" href="/css/datepicker.min.css" />
         <!-- js -->
         <script src="/js/jquery-3.2.1.min.js"></script>
         <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
+        <script src="/js/datepicker.min.js" charset="utf-8"></script>
         <script src="/js/lightbox.min.js" charset="utf-8"></script>
         <link rel="stylesheet" href="/css/main.css">
     </head>
@@ -23,8 +25,8 @@
                 <div class="cover-title">
                     <h1>122 2nd Street, Sea Isle City NJ</h1>
                     <h2>Set back and relax with ocean and bay views.</h2>
-                    <a class="book-link" href="/">
-                        <div class="book-now">
+                    <a class="book-link" href="/#/book-now">
+                        <div class="book-now" id="top-booking">
                             <span>Book Now</span>
                         </div>
                     </a>
@@ -58,12 +60,12 @@
                 </a>
             </div>
 
-            <div>
+            <div id="home">
                 <ul class="nav-tabs section-tabs dark" id="section-nav">
-                    <li class="nav-item about active">About</li>
-                    <li class="nav-item photos">Photos</li>
-                    <li class="nav-item fishermans">The Fisherman's Prayer</li>
-                    <li class="nav-item seashells">Seashells &amp; Seahorses</li>
+                    <a href="/#/about" class="nav-item about active">About</a>
+                    <a href="/#/photos" class="nav-item photos">Photos</a>
+                    <a href="/#/fishermans-prayer" class="nav-item fishermans">The Fisherman's Prayer</a>
+                    <a href="/#/seashells-and-seahorses" class="nav-item seashells">Seashells &amp; Seahorses</a>
                 </ul>
 
                 <section class="section about active">
@@ -185,10 +187,62 @@
                 </section>
 
 
+                <section class="section booking-form" id="booking-form">
+                    <div class="section-title">
+                        <h1>Inquiry Details</h1>
+                    </div>
+                    <div class="grid">
+                        <div class="row gutters">
+                            <div class="column" style="flex-direction: column;padding-bottom: 10px;">
+                                <label class="full-width" for="Name">Name</label>
+                                <input type="text" id="name" class="hk-input" placeholder="Name" style="width:380px;margin-top:6px;">
+                            </div>
+                        </div>
+
+                        <div class="row gutters">
+                            <div class="column" style="flex-direction: column;padding-bottom: 10px;">
+                                <label class="full-width" for="Email">Email</label>
+                                <input type="text" id="email" class="hk-input" placeholder="Email" style="width:380px;margin-top:6px;">
+                            </div>
+                        </div>
+
+                        <div class="row gutters">
+                            <div class="column" style="flex-direction: column;padding-bottom: 10px;">
+                                <label class="full-width" for="Phone">Phone</label>
+                                <input type="text" id="phone" class="hk-input" placeholder="(###) ###-####" style="width:380px;margin-top:6px;">
+                            </div>
+                        </div>
+
+                        <div class="row gutters">
+                            <div class="column" style="flex-direction: column;padding-bottom: 10px;">
+                                <label class="full-width" for="check-in-date">Check-in Date</label>
+                                <input type="text" id="check-in" data-toggle="datepicker" class="hk-input" placeholder="Check-In" style="margin-top:6px;width:190px;">
+                            </div>
+                            <div class="column" style="flex-direction: column;padding-bottom: 10px;padding-left:8px;">
+                                <label class="full-width" for="check-out-date">Check-out Date</label>
+                                <input type="text" data-toggle="datepicker" id="check-out" class="hk-input" placeholder="Check-Out" style="margin-top:6px;width:190px;">
+                            </div>
+                        </div>
+
+                        <div class="row gutters">
+                            <div class="column" style="flex-direction: column;padding-bottom:10px;">
+                                <a id="submit-booking" class="book-link" href="#">
+                                    <div class="book-now" style="width:390px;">
+                                        <span>Submit</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
             </div>
         </div>
 
         <script type="text/javascript">
+
+            $('[data-toggle="datepicker"]').datepicker();
 
             lightbox.option({
               'alwaysShowNavOnTouchDevices': true
@@ -219,6 +273,64 @@
                     'marker-color': '#f86767'
                 })
             }).addTo(map);
+
+            $(window).on('hashchange', function() {
+                var pathname = location.hash.slice(1);
+
+                if(pathname == '/book-now') {
+                    $('#top-booking').css("opacity", ".4");
+                    $sectionTabs.removeClass('active');
+                    $sections.removeClass('active');
+                    $('section#booking-form').addClass('active');
+                }
+
+            });
+
+            var pathname = location.hash.slice(1);
+            if(pathname == '/book-now') {
+                $('#top-booking').css("opacity", ".4");
+                $sectionTabs.removeClass('active');
+                $sections.removeClass('active');
+                $('section#booking-form').addClass('active');
+            } else {
+                $('#top-booking').css("opacity", "1")
+            }
+
+            $('#submit-booking').click(function(e) {
+                e.preventDefault();
+
+                var name = $('#name').val();
+                var email = $('#email').val();
+                var phone = $('#phone').val();
+                var checkIn = $('#check-in').val();
+                var checkOut = $('#check-out').val();
+
+                var data = {
+                    'name': name,
+                    'email': email,
+                    'phone': phone,
+                    'checkIn': checkIn,
+                    'checkOut': checkOut
+                };
+
+                // $.post('/book', JSON.stringify(data))
+                //     .done(function(res) {
+                //         console.log(res);
+                //     });
+
+                $.ajax({
+                    url: '/book',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(data)
+                })
+                .done(function(res) {
+                    console.log(res);
+                });
+
+
+
+            })
 
         </script>
 
