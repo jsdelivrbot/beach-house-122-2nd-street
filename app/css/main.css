@@ -390,3 +390,11 @@ p {
     border: 1px solid #74bbff;
     opacity: .766;
 }
+
+#thanks {
+    display: none;
+}
+
+.hide {
+    display: none;
+}
