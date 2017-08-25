@@ -398,3 +398,7 @@ p {
 .hide {
     display: none;
 }
+
+.section.photos {
+    min-height: 800px;
+}

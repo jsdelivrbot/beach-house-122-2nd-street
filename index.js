@@ -32,7 +32,7 @@ app.post('/book', function(req, res) {
         to: 'tnbbccj@aol.com',
         bcc: 'byrnec87@gmail.com,noriebyrne@yahoo.com',
         subject: 'New Booking Request',
-        text: `name: ${data.name}\nemail: ${data.email}\nphone: ${data.phone}\ncheck-in: ${data.checkIn}\ncheck-out: ${data.checkOut}`,
+        text: `Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nCheck-in: ${data.checkIn}\nCheck-out: ${data.checkOut}`,
     };
 
     transport.sendMail(mailOptions, function(err,info) {
