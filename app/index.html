@@ -25,7 +25,7 @@
                 <div class="cover-title">
                     <h1>122 2nd Street, Sea Isle City NJ</h1>
                     <h2>Set back and relax with ocean and bay views.</h2>
-                    <a class="book-link" href="/#/book-now">
+                    <a class="book-link" id="book-link" href="/#/book-now">
                         <div class="book-now" id="top-booking">
                             <span>Book Now</span>
                         </div>
@@ -279,6 +279,10 @@
                 })
             }).addTo(map);
 
+            $('#book-link').click(function(e) {
+                $('section#booking-form')[0].scrollIntoView();
+            });
+
             $(window).on('hashchange', function() {
                 var pathname = location.hash.slice(1);
 
@@ -287,6 +291,7 @@
                     $sectionTabs.removeClass('active');
                     $sections.removeClass('active');
                     $('section#booking-form').addClass('active');
+                    $('section#booking-form')[0].scrollIntoView();
                 } else {
                     $('#top-booking').css("opacity", .9);
                 }
@@ -299,6 +304,7 @@
                 $sectionTabs.removeClass('active');
                 $sections.removeClass('active');
                 $('section#booking-form').addClass('active');
+                $('section#booking-form')[0].scrollIntoView();
             } else {
                 $('#top-booking').css("opacity", .9);
             }
