@@ -399,6 +399,14 @@ p {
     display: none;
 }
 
-.section.photos {
+.section.photos, .section.contact {
     min-height: 800px;
+}
+
+#tom-byrne {
+    width: 150px;
+    padding: 16px;
+    padding-top: 29px;
+    padding-left: 0;
+    padding-right: 45px;
 }
