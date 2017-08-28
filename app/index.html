@@ -34,7 +34,7 @@
                 <ul class="nav-tabs main-nav">
                     <li class="nav-item"><a href="/">Home</a></li>
                     <li class="nav-item"><a href="/#/book-now">Book Now</a></li>
-                    <li class="nav-item"><a href="/">Guest Book</a></li>
+                    <li class="nav-item"><a href="/#/comments">Guest Book</a></li>
                     <li class="nav-item"><a href="/#/contact">Contact</a></li>
                 </ul>
             </header>
@@ -270,6 +270,19 @@
                     </div>
                 </section>
 
+                <section class="section comments" id="comments">
+                    <div class="section-title">
+                        <h1>Leave a Comment</h1>
+                    </div>
+                    <div class="grid" id="comment-grid">
+                        <div class="row gutters">
+                            <div class="column full-width">
+                                <div id="disqus_thread"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
             </div>
         </div>
 
@@ -332,6 +345,13 @@
                     $(window).scrollTop(528);
                 }
 
+                if(pathname == '/comments') {
+                    $sectionTabs.removeClass('active');
+                    $sections.removeClass('active');
+                    $('section#comments').addClass('active');
+                    $(window).scrollTop(528);
+                }
+
             });
 
             var pathname = location.hash.slice(1);
@@ -349,6 +369,15 @@
                 $sectionTabs.removeClass('active');
                 $sections.removeClass('active');
                 $('section#contact').addClass('active');
+                setTimeout(function() {
+                    $(window).scrollTop(528);
+                }, 400);
+            }
+
+            if(pathname == '/comments') {
+                $sectionTabs.removeClass('active');
+                $sections.removeClass('active');
+                $('section#comments').addClass('active');
                 setTimeout(function() {
                     $(window).scrollTop(528);
                 }, 400);
@@ -391,11 +420,25 @@
                     $('#thanks').show();
 
                 });
-
-
-
             })
 
+
+
+            /**
+            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+            var disqus_config = function () {
+            this.page.url = 'https://beach-house-122-2nd-street.herokuapp.com/#/comments';  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = 'comments'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+
+            (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://122-2nd-street.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
         </script>
 
     </body>
